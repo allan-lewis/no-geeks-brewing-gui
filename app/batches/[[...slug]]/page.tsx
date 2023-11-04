@@ -1,9 +1,8 @@
 "use client";
 
-import { useGetUsersQuery } from "@/redux/services/userApi";
-import { useGetBatchesQuery, GetBatchesResponse } from "@/redux/services/ngbApi";
-import { decrement, increment, reset } from "@/redux/features/counterSlice";
-import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { useGetBatchesQuery } from "@/redux/services/ngbApi";
+import { useAppDispatch } from "@/redux/hooks";
+import RecipeCard from "../../components/recipeCard";
 
 export default function Page({ params }: { params: { slug: string } }) {
   const dispatch = useAppDispatch();
@@ -26,17 +25,9 @@ export default function Page({ params }: { params: { slug: string } }) {
           }}
         >
           {data.map((batch) => (
-            <div
-              key={batch.id}
-              style={{ border: "1px solid #ccc", textAlign: "center" }}
-            >
-              <img
-                src={`https://robohash.org/${batch.id}?set=set2&size=180x180`}
-                alt={batch.id}
-                style={{ height: 180, width: 180 }}
-              />
-              <h3>{batch.name}</h3>
-            </div>
+            <>
+              <RecipeCard batch={batch}></RecipeCard>
+            </>
           ))}
         </div>
       ) : null}

@@ -1,4 +1,4 @@
-import HomePageCard from './HomePageCard'
+import HomePageLink from './components/homePageLink'
 
 export default function Home() {
   return (
@@ -17,10 +17,10 @@ export default function Home() {
       </div>
 
       <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-          <HomePageCard title={'Up Next'} subtitle={'Get a preview of upcoming brews.'} slug={'planning'}></HomePageCard>
-          <HomePageCard title={'Fermenting'} subtitle={'Look at what we\'ve got sitting in our tanks.'} slug={'conditioning'}></HomePageCard>
-          <HomePageCard title={'On Tap'} subtitle={'Learn more about what we\'re currenly pouring.'} slug={'completed'}></HomePageCard>
-          <HomePageCard title={'Archives'} subtitle={'Explore gone but not forgotten recipes of the past.'} slug={'archived'}></HomePageCard>
+          <HomePageLink title={'Up Next'} subtitle={'Get a preview of upcoming brews.'} slug={'planning'}></HomePageLink>
+          <HomePageLink title={'Fermenting'} subtitle={'Look at what we\'ve got sitting in our tanks.'} slug={'conditioning'}></HomePageLink>
+          <HomePageLink title={'On Tap'} subtitle={'Learn more about what we\'re currenly pouring.'} slug={'completed'}></HomePageLink>
+          <HomePageLink title={'Archives'} subtitle={'Explore gone but not forgotten recipes of the past.'} slug={'archived'}></HomePageLink>
       </div>
     </main>
   )
