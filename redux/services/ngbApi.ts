@@ -5,6 +5,10 @@ import { gql } from 'graphql-request'
 export interface Batch {
   id: string,
   name: string
+  status: string,
+  style: string,
+  batchNumber: number,
+  brewDate: number
 }
 
 export interface GetBatchesResponse {
@@ -24,6 +28,10 @@ export const api = createApi({
           batches(status: "${status}") {
             id
             name
+            batchNumber
+            status
+            style
+            brewDate
           }
         }
       `,
@@ -31,7 +39,7 @@ export const api = createApi({
           status
         },
       }),
-      transformResponse: (response: GetBatchesResponse) : Batch [] => response.batches,
+      transformResponse: (response: GetBatchesResponse) : Batch [] => response.batches.sort((a, b) => a.batchNumber - b.batchNumber),
     }),
   })
 });
