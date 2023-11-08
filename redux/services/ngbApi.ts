@@ -39,15 +39,9 @@ export const api = createApi({
           status
         },
       }),
-      transformResponse: (response: GetBatchesResponse) : Batch [] => response.batches.sort((a, b) => a.batchNumber - b.batchNumber),
+      transformResponse: (response: GetBatchesResponse) : Batch [] => response.batches.sort((a, b) => b.batchNumber - a.batchNumber),
     }),
   })
 });
 
 export const { useGetBatchesQuery } = api;
-
-// name
-// batchNumber
-// status
-// style
-// brewDate
