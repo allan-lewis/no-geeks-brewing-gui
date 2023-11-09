@@ -1,0 +1,17 @@
+version: 0.2
+env:
+  secrets-manager:
+    DOCKER_PASSWORD: "docker_secret:password"
+    DOCKER_USER: "docker_secret:username"
+phases:
+  pre_build:
+    commands:
+      - $(aws ecr get-login --no-include-email --region us-east-1)
+  build:
+    commands:
+      - docker build -t allanelewis/no-geeks-brewing-gui:latest .
+      - docker tag allanelewis/no-geeks-brewing-gui:latest allanelewis/no-geeks-brewing-gui:latest
+  post_build:
+    commands:
+      - docker login -u=$DOCKER_USER -p=$DOCKER_PASSWORD
+      - docker push allanelewis/no-geeks-brewing-gui:latest
