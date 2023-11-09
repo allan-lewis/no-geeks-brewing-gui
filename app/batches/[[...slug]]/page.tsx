@@ -23,7 +23,7 @@ export default function Page({ params }: { params: { slug: string } }) {
       ) : data ? (
         <div className="grid lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-3 flex gap-4">
           {data.map((batch) => (
-            <RecipeCard batch={batch}></RecipeCard>
+            <RecipeCard key={batch.id} batch={batch}></RecipeCard>
           ))}
         </div>
       ) : null}
