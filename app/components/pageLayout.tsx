@@ -1,32 +1,37 @@
-export default function PageLayout({ title }: { title: string }) {
-    return (
-        <div className="flex flex-col h-screen">
-            <PageHeader title={title}></PageHeader>
-            <PageMain></PageMain>
-            <PageFooter></PageFooter>
-        </div>
-    )};
+import { ReactNode } from "react"
 
-function PageHeader({ title }: { title: string }) {
-    return (
-        <header className="py-4 bg-indigo-600 text-white text-center">
-        {title}
-      </header>
-    )
+const EMAIL = 'allan@nogeeksbrewing.com'
+
+export default function PageLayout({ title, mainComponent }: { title: string, mainComponent: ReactNode }) {
+  return (
+    <div className="flex flex-col h-screen">
+      <PageHeader title={title}></PageHeader>
+      <PageMain childComponent={mainComponent}></PageMain>
+      <PageFooter></PageFooter>
+    </div>
+  )
 }
 
-function PageMain() {
-    return (
-      <main className="flex-1 overflow-y-auto p-5">
+function PageHeader({ title }: { title: string }) {
+  return (
+    <header className="py-4 bg-indigo-600 text-white text-center">
+      {title}
+    </header>
+  )
+}
 
-      </main>
-    )
+function PageMain({ childComponent }: { childComponent: ReactNode }) {
+  return (
+    <main className="flex-1 overflow-y-auto p-5">
+      {childComponent}
+    </main>
+  )
 }
 
 function PageFooter() {
-    return (
-      <footer className="py-4 bg-indigo-500 text-center text-white">
-      <a className="hover:underline" href="mailto:allan@nogeeksbrewing.com">allan@nogeeksbrewing.com</a>
+  return (
+    <footer className="py-4 bg-indigo-500 text-center text-white">
+      <a className="hover:underline" href={'mailto:' + EMAIL}>{EMAIL}</a>
     </footer>
-    )
+  )
 }
