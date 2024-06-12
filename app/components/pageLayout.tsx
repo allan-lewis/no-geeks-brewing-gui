@@ -4,7 +4,7 @@ const EMAIL = 'allan@nogeeksbrewing.com'
 
 export default function PageLayout({ title, mainComponent }: { title: string, mainComponent: ReactNode }) {
   return (
-    <div className="flex flex-col h-screen">
+    <div className="flex flex-col h-screen bg-yellow-600">
       <PageHeader title={title}></PageHeader>
       <PageMain childComponent={mainComponent}></PageMain>
       <PageFooter></PageFooter>
@@ -22,7 +22,7 @@ function PageHeader({ title }: { title: string }) {
 
 function PageMain({ childComponent }: { childComponent: ReactNode }) {
   return (
-    <main className="flex-1 overflow-y-auto p-5">
+    <main className="flex-1 overflow-y-auto">
       {childComponent}
     </main>
   )
@@ -30,7 +30,7 @@ function PageMain({ childComponent }: { childComponent: ReactNode }) {
 
 function PageFooter() {
   return (
-    <footer className="py-4 bg-indigo-500 text-center text-white">
+    <footer className="py-4 bg-indigo-600 text-center text-white">
       <a className="hover:underline" href={'mailto:' + EMAIL}>{EMAIL}</a>
     </footer>
   )
