@@ -4,7 +4,7 @@
 
 @layer components {
   .ngb-container {
-    @apply flex flex-col bg-yellow-600 h-full w-full justify-evenly
+    @apply flex flex-col bg-yellow-600 h-full w-full 
   }
 }
 
