@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function HomePage() {
     return (
-        <div className="flex flex-col bg-yellow-600 h-full w-full justify-evenly">
+        <div className="ngb-container">
             <HomeLinks></HomeLinks>
         </div>
     )

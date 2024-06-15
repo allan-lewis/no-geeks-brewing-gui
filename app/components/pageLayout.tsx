@@ -4,7 +4,7 @@ const EMAIL = 'allan@nogeeksbrewing.com'
 
 export default function PageLayout({ title, mainComponent }: { title: string, mainComponent: ReactNode }) {
   return (
-    <div className="flex flex-col h-screen bg-yellow-600">
+    <div className="flex flex-col h-screen bg-gray-600">
       <PageHeader title={title}></PageHeader>
       <PageMain childComponent={mainComponent}></PageMain>
       <PageFooter></PageFooter>
