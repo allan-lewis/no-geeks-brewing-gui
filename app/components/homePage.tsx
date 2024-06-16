@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function HomePage() {
     return (
-        <div className="ngb-container justify-evenly">
+        <div className="ngb-container-mid">
             <HomeLinks></HomeLinks>
         </div>
     )

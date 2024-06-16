@@ -3,7 +3,11 @@
 @tailwind utilities;
 
 @layer components {
-  .ngb-container {
+  .ngb-container-mid {
+    @apply flex flex-col justify-evenly bg-yellow-600 h-full w-full 
+  }
+
+  .ngb-container-top {
     @apply flex flex-col bg-yellow-600 h-full w-full 
   }
 }

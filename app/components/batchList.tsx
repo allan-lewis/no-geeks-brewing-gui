@@ -6,16 +6,19 @@ import { notFound } from 'next/navigation'
 const knownStatuses: readonly string[] =["archived", "conditioning", "completed", "planning"]
 
 export default function BatchList({ status }: { status: string }) {
-  return knownStatuses.indexOf(status) == -1 ? notFound() : loadPage(status)
+  return knownStatuses.indexOf(status) == -1 ? notFound() : LoadPage(status)
 }
 
-function loadPage(status: string) {
+function LoadPage(status: string) {
   const { isLoading, isFetching, data, error } = useGetBatchesQuery({status});
   const showLoading = false;
   const showError = false;
 
+  const className = error || showError || showLoading || isLoading || isFetching ? "ngb-container-mid" : "ngb-container-top";
+
   return (
-    <div className="ngb-container">
+    
+    <div className={className}>
       {error || showError ? (
         <ErrorPlaceholder></ErrorPlaceholder>
       ) : showLoading || isLoading || isFetching ? (
